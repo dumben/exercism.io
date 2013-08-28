@@ -11,4 +11,4 @@
 (defn anagrams-for
   [word candidates]
   (let [canonical (canonicalize word)]
-    (vec (filter #(and (not= word %) (= canonical (canonicalize %))) candidates))))
+    (remove #(= word %) (filter #(= canonical (canonicalize %)) candidates))))
